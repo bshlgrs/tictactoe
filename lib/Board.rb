@@ -57,5 +57,16 @@ class Board
     # what do I do if the board is invalid?
     count_mark(:naught) == count_mark(:cross) || count_mark(:naught) == count_mark(:cross) - 1
   end
+
+  def make_move_for_o
+    [0, 1, 2].each do |row|
+      [0, 1, 2].each do |col|
+        if @grid[row][col].nil?
+          @grid[row][col] = :naught
+          return
+        end
+      end
+    end
+  end
 end
 

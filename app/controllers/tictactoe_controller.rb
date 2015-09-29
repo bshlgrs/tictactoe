@@ -5,6 +5,8 @@ class TictactoeController < ApplicationController
     if sent_board
       if sent_board.is_valid?
         if sent_board.plausibly_the_turn_of_o?
+          sent_board.make_move_for_o
+
           render text: sent_board.to_wave_string
         else
           render text: "error: it is not plausibly the turn of o.", status: 400
